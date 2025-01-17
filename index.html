@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyHigh Airlines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link id="theme-stylesheet" rel="stylesheet" href="styles/light-theme.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideInDown 1s;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        header nav {
+            display: flex;
+            gap: 1.5em;
+        }
+
+        header nav a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin: 0.5em 0;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 1.5em;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            padding: 0.8em 2em;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            animation: bounceIn 1.5s;
+        }
+
+        @keyframes bounceIn {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 4em 5%;
+        }
+
+        .feature {
+            flex: 1;
+            margin: 1em;
+            padding: 1.5em;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h3 {
+            margin-bottom: 1em;
+        }
+
+        footer {
+            padding: 1em 5%;
+            text-align: center;
+            animation: slideInUp 1s;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+
+            .hero .cta {
+                padding: 0.6em 1.5em;
+                font-size: 1em;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature {
+                width: 90%;
+                margin: 1em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SkyHigh Airlines</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#book">Book a Flight</a>
+            <a href="#contact">Contact</a>
+            <button id="theme-toggle">Toggle Theme</button>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Experience the Sky Like Never Before</h1>
+        <p>Discover the best deals, the most comfortable flights, and the easiest booking system with SkyHigh Airlines.</p>
+        <a href="#book" class="cta">Book Now</a>
+    </section>
+
+    <section id="features" class="features">
+        <div class="feature">
+            <h3>Comfortable Seats</h3>
+            <p>Enjoy extra legroom and premium comfort in all our aircraft.</p>
+        </div>
+        <div class="feature">
+            <h3>Exclusive Deals</h3>
+            <p>Get the best prices on flights, exclusively on our website.</p>
+        </div>
+        <div class="feature">
+            <h3>World-Class Service</h3>
+            <p>Our crew is here to ensure you have the best flying experience.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 SkyHigh Airlines. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const toggleTheme = () => {
+            const themeStylesheet = document.getElementById('theme-stylesheet');
+            if (themeStylesheet.getAttribute('href') === 'styles/light-theme.css') {
+                themeStylesheet.setAttribute('href', 'styles/dark-theme.css');
+            } else {
+                themeStylesheet.setAttribute('href', 'styles/light-theme.css');
+            }
+        };
+
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>
